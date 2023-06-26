@@ -57,7 +57,7 @@
         </form>
     </x-auth-card>
 </x-guest-layout> --}}
-@extends('layout.app')
+ @extends('layout.app')
 @section('title', "S'enregistrer")
 @section('contenu')
     <main id="main" class="main">
@@ -108,4 +108,4 @@
         </section>
 
     </main>
-<! @endsection
+@endsection

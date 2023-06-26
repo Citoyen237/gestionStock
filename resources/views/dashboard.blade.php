@@ -1,4 +1,5 @@
  @extends('layout.app')
+ @section('title','dashboard')
  @section('contenu')
  <main id="main" class="main">
     <div class="pagetitle">

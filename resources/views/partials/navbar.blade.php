@@ -241,7 +241,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="{{ route('dashboard') }}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -253,7 +253,7 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="#">
+            <a href="{{ route('newvente.index') }}">
               <i class="bi bi-circle"></i><span>Nouvelle commande</span>
             </a>
           </li>
@@ -263,7 +263,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{ route('maintenance.index') }}">
               <i class="bi bi-circle"></i><span>Maintenance</span>
             </a>
           </li>
@@ -281,7 +281,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{ route('fornisseur.index') }}">
               <i class="bi bi-circle"></i><span>Fournisseurs</span>
             </a>
           </li>
@@ -299,17 +299,17 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="#">
+            <a href="{{ route('produit.create') }}">
               <i class="bi bi-circle"></i><span>Ajouter un produits</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{ route('produit.liste') }}">
               <i class="bi bi-circle"></i><span>Listes des produits</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{ route('categorie') }}">
               <i class="bi bi-circle"></i><span>Categories</span>
             </a>
           </li>
@@ -322,7 +322,7 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="#">
+            <a href="{{ route('depense.index') }}">
               <i class="bi bi-circle"></i><span>Despenses</span>
             </a>
           </li>
@@ -340,7 +340,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{ route('client.liste') }}">
               <i class="bi bi-circle"></i><span>Clients</span>
             </a>
           </li>
@@ -350,13 +350,13 @@
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="{{ route('profile') }}">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('logout') }}">
+        <a class="nav-link collapsed" href="{{route('login')}}">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Deconnexion</span>
         </a>
