@@ -21,14 +21,14 @@
                     <div class="col-xxl-4 col-md-3">
                         <div class="card info-card sales-card">
                             <div class="card-body">
-                                <h5 class="card-title">Ventes <button>2</button></h5>
+                                <h5 class="card-title">Ventes <button>{{  $ventes->count() }}</button></h5>
                                 <div class="d-flex align-items-center">
                                     <div
                                         class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <a href="BilanVente.php"><i class="bi bi-cart"></i></a>
+                                        <a href="{{ route('vente.liste') }}"><i class="bi bi-cart"></i></a>
                                     </div>
                                     <div class="ps-1">
-                                        <h6>58.000F</h6>
+                                        <h6>{{ $ventes->sum('total') }} F</h6>
                                     </div>
                                 </div>
                             </div>
@@ -40,14 +40,14 @@
                     <div class="col-xxl-4 col-md-3">
                         <div class="card info-card revenue-card">
                             <div class="card-body">
-                                <h5 class="card-title">Achats <button>10</button></h5>
+                                <h5 class="card-title">Achats <button>{{  $achats->count() }}</button></h5>
                                 <div class="d-flex align-items-center">
                                     <div
                                         class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <a href="BilanAchat.php"><i class="bi bi-currency-dollar"></i></a>
+                                        <a href="{{ route('achat.liste') }}"><i class="bi bi-currency-dollar"></i></a>
                                     </div>
                                     <div class="ps-1">
-                                        <h6>85.000F</h6>
+                                        <h6>{{ $achats->sum('total') }}F</h6>
                                     </div>
                                 </div>
                             </div>
@@ -58,15 +58,15 @@
                     <div class="col-xxl-4 col-md-3">
                         <div class="card info-card customers-card">
                             <div class="card-body">
-                                <h5 class="card-title">Maintenance <button>51</h5>
+                                <h5 class="card-title">Maintenance <button>{{  $maintenances->count() }}</h5>
 
                                 <div class="d-flex align-items-center">
                                     <div
                                         class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <a href="maintenance.php"><i class="bi bi-gear-wide-connected"></i></a>
+                                        <a href="{{ route('maintenance.index') }}"><i class="bi bi-gear-wide-connected"></i></a>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>500.000F</h6>
+                                        <h6>{{ $maintenances->sum('montant') }}F</h6>
 
                                     </div>
                                 </div>
@@ -79,16 +79,16 @@
                         <div class="card info-card customers-card">
                             <div class="card-body">
                                 <h5 class="card-title">Depenses
-                                    <button>4</button>
+                                    <button>{{  $depenses->count() }}</button>
                                 </h5>
 
                                 <div class="d-flex align-items-center">
                                     <div
                                         class="card-icon rounded-circle d-flex align-items-center justify-content-center bg-info">
-                                        <a href="Depense.php"><i class="bi bi-clipboard-minus text-secondary"></i></a>
+                                        <a href="{{ route('depense.index') }}"><i class="bi bi-clipboard-minus text-secondary"></i></a>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>450.100F</h6>
+                                        <h6>{{  $depenses->sum('montant') }}F</h6>
 
                                     </div>
                                 </div>
@@ -162,7 +162,7 @@
                 </div>
             </div>
 
-            <!-- Recent Sales -->
+            {{-- <!-- Recent Sales -->
             <div class="col-12">
                 <div class="card recent-sales overflow-auto">
 
@@ -251,7 +251,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div>--}}
         </div>
     </section>
     </div>

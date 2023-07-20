@@ -41,7 +41,7 @@
                                         <th scope="col">#</th>
                                         <th scope="col">Noms</th>
                                         <th scope="col">Quandites</th>
-                                        <th scope="col">Valeur (FCFA)</th>
+                                        <th scope="col">Total</th>
                                         <th scope="col" class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -50,8 +50,8 @@
                                         <tr>
                                             <th scope='row'>{{ $loop->index + 1 }}</th>
                                             <td>{{ $categorie->nom }}</td>
-                                            <td>$qdttotal</td>
-                                            <td>$valeur</td>
+                                            <td>{{ $categorie->produits->count() }}</td>
+                                            <td>{{ $categorie->produits->sum('quandite') }}</td>
                                             <td class='text-center'>
                                                 {{-- <a href="{{ route('categorie.edit', ['categorie' => $categorie->id]) }}"
                                                     class="btn btn-primary"><i

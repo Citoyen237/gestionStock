@@ -26,7 +26,7 @@ class ProduitController extends Controller
             'createproduit',
             [
                 'categories' => $Categories,
-                
+
             ]
         );
     }

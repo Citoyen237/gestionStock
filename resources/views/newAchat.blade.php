@@ -4,11 +4,11 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Vente au comptoire</h1>
+            <h1>Bon de commande</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Ventes</li>
+                    <li class="breadcrumb-item">Achats</li>
                     <li class="breadcrumb-item active">Nouveau</li>
                 </ol>
             </nav>
@@ -17,7 +17,7 @@
         <section class="section">
             <div class="card">
                 <h5 class="card-title p-4">
-                    Code de la vente : v0{{ $facture_id }} <br>
+                    Code du bon : A0{{ $facture_id }} <br>
                     Motant total =
                     <button>{{ $totalr }}</button>FCFA<br>
                     <ul></ul>
@@ -28,16 +28,10 @@
                     @endif
                     </ul>
                 </h5>
-                @if (session()->has('quandite'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session()->get('quandite') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-                @endif
             </div>
             <div class="card">
                 <div class="card-body">
-                    <form class="row g-3 p-4" method="post" action="{{ route('newvente.store') }}">
+                    <form class="row g-3 p-4" method="post" action="{{ route('newachat.store') }}">
                         @csrf
                         <div class="col-md-3 ">
                             <label for="inputCity" class="form-label">Nom:</label>
@@ -75,7 +69,7 @@
                     <hr>
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Elements de la commande</h5>
+                            <h5 class="card-title">Elements du bon</h5>
                             <!-- Active Table -->
                             <table class="table datatable">
                                 <thead>
@@ -104,7 +98,7 @@
                                                     onclick="if(confirm('Voulez vraiment supprimer ce produit?')){document.getElementById('form-{{ $commande->id }}').submit()}"><i
                                                         class='bi bi-trash-fill'></i></a>
                                                 <form id="form-{{ $commande->id }}"
-                                                    action="{{ route('newvente.delete', ['commande' => $commande->id]) }}"
+                                                    action="{{ route('achat.delete', ['commande' => $commande->id]) }}"
                                                     method="post">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="delete">
@@ -117,17 +111,17 @@
                                 </tbody>
                             </table>
                             <!-- End Tables without borders -->
-                            <form action="{{ route('facturation.validation') }}" method="post">
+                            <form action="{{ route('facturationA.validation') }}" method="post">
                                 @csrf
                                 <div class="col-md-6 mx-auto">
-                                 <p><b>Nom du client :</b> </p><select name="client_id" id="" class="form-select">
+                                 <p><b>Nom du fournisseur :</b> </p><select name="client_id" id="" class="form-select">
                                       <option value=""></option>
                                         @foreach ($clients as $client)
                                          <option value="{{ $client->id }}">{{ $client->nom }}</option>
                                         @endforeach
                                     </select>
                                     <input type="hidden" class="total" value="{{ $totalr }}" name="total">
-                                    <input type="hidden" name="type" value="vente">
+                                    <input type="hidden" name="type" value="achat">
                                     <input type="hidden" name="code_fac" value="{{ $facture_id }}"><br>
                                     <button type="submit" class="btn btn-primary form-control">Valider la vente</button>
                                 </div>

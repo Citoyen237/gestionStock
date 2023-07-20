@@ -24,7 +24,7 @@
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i
                                         class="bi bi-person-plus-fill"></i></button>
-                                <a href="listef.php" class="btn btn-warning"><i class="bi bi-printer-fill"></i></a>
+                                <a href="{{ route('pdf.fournisseur') }}" class="btn btn-warning"><i class="bi bi-printer-fill"></i></a>
                             </h5>
                             @if ($errors->any())
                                 <ul>

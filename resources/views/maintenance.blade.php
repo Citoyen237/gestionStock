@@ -36,7 +36,7 @@
                         <h5 class="card-title p-4">
                             Revenue
                             <button>
-                                5000FCFA
+                                {{ $solde }}FCFA
                             </button>
                             <a href="{{ route('maintenance.create') }}" class="btn btn-primary">Nouveau</a>
                             <button type="button" class="btn btn-warning" data-bs-toggle="modal"
@@ -115,11 +115,11 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <a href="listem.php" class="btn btn-warning form-control">Imprimer</a>
+                                    <a href="{{ route('pdf.maintenance') }}" class="btn btn-warning form-control">Imprimer</a>
                                 </div>
                         </div>
                         <div class="modal-footer">
-                            <a href="listem.php" class="btn btn-warning">Tous</a>
+                            <a href="{{ route('pdf.maintenance') }}" class="btn btn-warning">Tous</a>
                         </div>
                     </div>
                 </div>

@@ -23,7 +23,7 @@
                             <h5 class="card-title">Clients
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" data-bs-whatever="@mdo">Ajouter</button>
-                                <a href="listec.php" class="btn btn-warning"><i class="bi bi-printer-fill"></i></a>
+                                <a href="{{ route('pdf.client') }}" class="btn btn-warning"><i class="bi bi-printer-fill"></i></a>
                             </h5>
                             @if ($errors->any())
                                 @foreach ($errors->all() as $error)
@@ -61,8 +61,8 @@
                                             <th scope='row'>{{ $loop->index + 1 }}</th>
                                             <td>{{ $client->nom . ' ' . $client->prenom }}</td>
                                             <td>{{ $client->telephone }}</td>
-                                            <td>{{ $client->user->name }}</td>
-                                            <td>{{ $client->created_at }}</td>
+                                            <td>{{ $client->facture2s->count() }}</td>
+                                            <td>{{ $client->created_at->format('d-m-Y') }}</td>
                                             <form method='post' action='Clients.php'>
                                                 <td class='text-center'>
                                                     <button type='submit' name='modifier' class=' btn btn-primary'><i
@@ -75,8 +75,6 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
-                            </table>
-                            </tbody>
                             </table>
                             <!-- End Table with stripped rows -->
 

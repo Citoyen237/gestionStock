@@ -6,7 +6,7 @@
             <h1>Stocks</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item">Stocks</li>
                     <li class="breadcrumb-item active">Liste</li>
                 </ol>
@@ -19,9 +19,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Produits en stocks
                                 <a href="{{ route('produit.create') }}" class="btn btn-primary">Ajouter</a>
-                                <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i
-                                        class="bi bi-printer-fill"></i></button>
+                                <a href="{{ route('pdf.produit') }}" class="btn btn-warning"><i class="bi bi-printer-fill"></i></a>
                             </h5>
                             <h5>
                                 @if (session()->has('successDelete'))
@@ -59,6 +57,7 @@
                                             <td>{{ $produit->categorie->nom }}</td>
 
                                             <td>
+                                                <a href="{{ route('suivis',['id'=>$produit->id]) }}" class="btn btn-outline-warning">Suivis</a>
                                                 <a href="{{ route('produit.edit', ['produit' => $produit->id]) }}"
                                                     class="btn btn-primary"><i class='bi bi-pencil-square'></i></a>
                                                 <a href="#" class="btn btn-danger"

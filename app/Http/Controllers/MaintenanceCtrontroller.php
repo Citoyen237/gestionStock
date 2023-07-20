@@ -16,8 +16,10 @@ class MaintenanceCtrontroller extends Controller
     public function index()
     {
         $maintenances = Maintenance::orderBy("created_at", "desc")->paginate(10);
+        $solde = Maintenance::sum('montant');
         return view('maintenance', [
             'maintenances' => $maintenances,
+            'solde'=>$solde,
         ]);
     }
 
@@ -29,8 +31,10 @@ class MaintenanceCtrontroller extends Controller
     public function create()
     {
         $clients = Client::orderBy("nom", "asc")->paginate(50);
+        $solde = Maintenance::sum('montant');
         return view('newMaintenance', [
             'clients' => $clients,
+            'solde' =>$solde,
         ]);
     }
 
@@ -68,8 +72,14 @@ class MaintenanceCtrontroller extends Controller
         ]);
 
         $maintenances = Maintenance::orderBy("created_at", "desc")->paginate(10);
+        $solde = Maintenance::sum('montant');
+       // dd($solde);
         return view('maintenance', [
-            'maintenances' => $maintenances ]);
+            'maintenances' => $maintenances,
+            'solde' => $solde,
+            ]
+        );
+
     }
 
     /**

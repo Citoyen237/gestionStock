@@ -258,7 +258,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{ route('vente.liste') }}">
               <i class="bi bi-circle"></i><span>Bilan des ventes</span>
             </a>
           </li>
@@ -276,7 +276,7 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="#">
+            <a href="{{ route('newachat.index') }}">
               <i class="bi bi-circle"></i><span>Nouvelle Achat</span>
             </a>
           </li>
@@ -286,7 +286,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{ route('achat.liste') }}">
               <i class="bi bi-circle"></i><span>Bons des achats</span>
             </a>
           </li>
@@ -335,7 +335,7 @@
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="#">
+            <a href="{{ route('user.liste') }}">
               <i class="bi bi-circle"></i><span>Utilisateurs</span>
             </a>
           </li>

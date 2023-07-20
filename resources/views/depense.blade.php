@@ -22,7 +22,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Liste de depenses
                                 <button>
-                                    5000FCFA
+                                    {{ $solde }}FCFA
                                 </button>
                                 <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i
@@ -158,11 +158,11 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <a href="listed.php" class="btn btn-warning form-control">Imprimer</a>
+                                    <a href="{{ route('pdf.depense') }}" class="btn btn-warning form-control">Imprimer</a>
                                 </div>
                         </div>
                         <div class="modal-footer">
-                            <a href="listed.php" class="btn btn-warning">Tous</a>
+                            <a href="{{ route('pdf.depense') }}" class="btn btn-warning">Tous</a>
                         </div>
                     </div>
                 </div>

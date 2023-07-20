@@ -2,28 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Depense;
+use App\Models\Facture2;
+use App\Models\Facture3;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
-class DepenseController extends Controller
+class BilanVenteContoller extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-     public function __construct()
-     {
-         $this->middleware('auth');
-     }
     public function index()
     {
-        $depenses = Depense::orderBy("created_at", "desc")->paginate(10);
-        $solde=Depense::sum('montant');
-        return view('depense', [
-            'depenses' => $depenses,
-            'solde' => $solde,
+        //
+        $factures=Facture3::where('type','vente')->orderBy('created_at','desc')->get();
+        $solde=Facture3::where('type','vente')->sum('total');
+        return view('bilanVente',[
+            'factures'=>$factures,
+            'solde'=>$solde,
         ]);
     }
 
@@ -46,25 +49,6 @@ class DepenseController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'motif' => ['required', 'unique:depenses'],
-            'montant' => ['required'],
-            'user_id' => ['required', 'exists:users,id'],
-        ]);
-
-
-        Depense::create([
-            'motif' => $request->motif,
-            'montant' => $request->montant,
-            'user_id' => $request->user_id,
-        ]);
-
-        $depenses = Depense::orderBy("created_at", "desc")->paginate(10);
-        $solde=Depense::sum('montant');
-        return view('depense', [
-            'depenses' => $depenses,
-            'solde' => $solde,
-        ]);
     }
 
     /**

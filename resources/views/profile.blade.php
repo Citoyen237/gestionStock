@@ -117,7 +117,7 @@
                                                 Prenom:</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <input name="nom" type="text" class="form-control" id="fullName"
-                                                    value="">
+                                                    value="{{ Auth::user()->name }}">
                                             </div>
                                         </div>
 
@@ -135,7 +135,7 @@
                                                 E-mail:</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <input name="email" type="text" class="form-control" id="Job"
-                                                    value="">
+                                                    value="{{ Auth::user()->email }}">
                                             </div>
                                         </div>
 
@@ -143,7 +143,7 @@
                                             <label for="Job" class="col-md-4 col-lg-3 col-form-label">Poste:</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <input name="poste" type="text" class="form-control" id="Job"
-                                                    value="">
+                                                    value="{{ Auth::user()->poste->nom }}">
                                             </div>
                                         </div>
                                         <div class="text-center">

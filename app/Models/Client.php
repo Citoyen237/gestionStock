@@ -4,6 +4,7 @@ namespace App\Models;
 
 use id;
 use App\Models\User;
+use App\Models\Facture3;
 use App\Models\Maintenance;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -29,5 +30,10 @@ class Client extends Model
     public function maintenances():HasMany
     {
         return $this->hasMany(Maintenance::class);
+    }
+
+    public function facture2s():HasMany
+    {
+       return $this->hasMany(Facture3::class);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommandesTable extends Migration
+class CreateFacture2sTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateCommandesTable extends Migration
      */
     public function up()
     {
-        Schema::create('commandes', function (Blueprint $table) {
+        Schema::create('facture2s', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('produit_id')->contraind();
-            $table->integer('prix');
-            $table->string('quandite');
+            $table->foreignId('client_id')->contrained();
             $table->integer('total');
-            $table->foreignId('client_id')->constrained();
+            $table->string('type');
+            $table->string('code_fac');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateCommandesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commandes');
+        Schema::dropIfExists('facture2s');
     }
 }
